@@ -17,7 +17,7 @@ namespace WrestlingEmpireTemplateMod
     {
         public const string PluginGuid = "IngoH.WrestlingEmpire.WrestlingEmpireKeybindCheats";
         public const string PluginName = "WrestlingEmpireKeybindCheats";
-        public const string PluginVer = "1.0.0";
+        public const string PluginVer = "1.0.1";
 
         internal static ManualLogSource Log;
         internal readonly static Harmony Harmony = new(PluginGuid);
@@ -95,6 +95,15 @@ namespace WrestlingEmpireTemplateMod
         [HarmonyPatch(typeof(FDPCGNBMNLJ), "GHPGPDGEJMK")]
         [HarmonyPostfix]
         private static void FDPCGNBMNLJ_GHPGPDGEJMK(ref int __result)
+        {
+            if (Input.GetKey(KeyCode.N)) {
+                __result = 2;
+            }
+        }
+        
+        [HarmonyPatch(typeof(FDPCGNBMNLJ), "NBIEBBODOFM")]
+        [HarmonyPostfix]
+        private static void FDPCGNBMNLJ_NBIEBBODOFM(ref int __result)
         {
             if (Input.GetKey(KeyCode.N)) {
                 __result = 2;
