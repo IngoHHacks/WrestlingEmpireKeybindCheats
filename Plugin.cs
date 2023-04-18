@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 using Color = System.Drawing.Color;
 using Random = UnityEngine.Random;
 
-namespace WrestlingEmpireTemplateMod
+namespace WrestlingEmpireKeybindCheats
 {
     [BepInPlugin(PluginGuid, PluginName, PluginVer)]
     [HarmonyPatch]
