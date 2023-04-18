@@ -17,7 +17,7 @@ namespace WrestlingEmpireTemplateMod
     {
         public const string PluginGuid = "IngoH.WrestlingEmpire.WrestlingEmpireKeybindCheats";
         public const string PluginName = "WrestlingEmpireKeybindCheats";
-        public const string PluginVer = "1.0.1";
+        public const string PluginVer = "1.1.0";
 
         internal static ManualLogSource Log;
         internal readonly static Harmony Harmony = new(PluginGuid);
@@ -59,7 +59,7 @@ namespace WrestlingEmpireTemplateMod
                 {
                     size *= 4;
                 }
-                INNAMALBFPL.PHMKNKGAFGL(3, 1,  new UnityEngine.Color(1f, Random.Range(0.3f,0.7f), 0f), size, null, Random.Range(-40,40f), Random.Range(-10,10f), Random.Range(-40,40f), 0f, 0f, 0.1f);
+                GIFFAHMPBJE.LPLOPMKOGDL(3, 1,  new UnityEngine.Color(1f, Random.Range(0.3f,0.7f), 0f), size, null, Random.Range(-40,40f), Random.Range(-10,10f), Random.Range(-40,40f), 0f, 0f, 0.1f);
                 if (!Input.GetKey(KeyCode.LeftShift) && !Input.GetKey(KeyCode.RightShift))
                 {
                     _explosiondelay = Time.time + 0.1f;
@@ -69,41 +69,41 @@ namespace WrestlingEmpireTemplateMod
             {
                 if (Input.GetKeyDown((KeyCode)i) && SceneManager.GetActiveScene().name == "Calendar")
                 {
-                    HJBJPCDFLGL.COCJBGIIEKO();
-                    HJBJPCDFLGL.CPPCEJDKCFM = 1501;
-                    HJBJPCDFLGL.HEFPEGMGIEP = Characters.fedData[((i - (int)KeyCode.Alpha1 + 10) % 10) + 1].booker;
-                    KPGIEHHDIDA.BANOJFCLKIM(70);
+                    ANKJMHMKLPJ.KOIPNKJDEFE();
+                    ANKJMHMKLPJ.MCLJLIAKBOB = 1501;
+                    ANKJMHMKLPJ.PCLFBHKNABF = Characters.fedData[((i - (int)KeyCode.Alpha1 + 10) % 10) + 1].booker;
+                    LAHGBLEJCEO.KLNDLKEPNEF(70);
                 }
             }
 
             if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.End) && SceneManager.GetActiveScene().name == "Game")
             {
-                foreach (var cd in NODLGBMEKCI.NMOJJPKABCC)
+                foreach (var cd in DGCPHFIBPHC.KHMKIGPJPHN)
                 {
                     if (cd == null) continue;
-                    cd.DOJIAJKMOEI /= 2;
+                    cd.FKKHGGLJIAA /= 2;
                 }
             }
             
             if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.I) && SceneManager.GetActiveScene().name == "Game")
             {
-                var cd = NODLGBMEKCI.NMOJJPKABCC.Where(cd => cd != null).OrderBy(c => Guid.NewGuid()).First();
-                cd.BBOMLOGMHDO(Random.Range(0, 4), int.MaxValue);
+                var cd = DGCPHFIBPHC.KHMKIGPJPHN.Where(cd => cd != null).OrderBy(c => Guid.NewGuid()).First();
+                cd.ICLPLNHKGLP(Random.Range(0, 4), int.MaxValue);
             }
         }
         
-        [HarmonyPatch(typeof(FDPCGNBMNLJ), "GHPGPDGEJMK")]
+        [HarmonyPatch(typeof(PGKMAENFBOI), nameof(PGKMAENFBOI.HMMEIHJOMOD))]
         [HarmonyPostfix]
-        private static void FDPCGNBMNLJ_GHPGPDGEJMK(ref int __result)
+        private static void PGKMAENFBOI_HMMEIHJOMOD(ref int __result)
         {
             if (Input.GetKey(KeyCode.N)) {
                 __result = 2;
             }
         }
         
-        [HarmonyPatch(typeof(FDPCGNBMNLJ), "NBIEBBODOFM")]
+        [HarmonyPatch(typeof(PGKMAENFBOI), nameof(PGKMAENFBOI.DNHDIBKNEOG))]
         [HarmonyPostfix]
-        private static void FDPCGNBMNLJ_NBIEBBODOFM(ref int __result)
+        private static void PGKMAENFBOI_DNHDIBKNEOG(ref int __result)
         {
             if (Input.GetKey(KeyCode.N)) {
                 __result = 2;
