@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.4.0
+- UPDATE TO GAME VERSION 1.60
+
+## 1.3.1
+- Fix for injury cheat (Left Alt + I) not working.
+
 ## 1.3.0
 - UPDATE TO GAME VERSION 1.59
 
