@@ -29,6 +29,9 @@
       <Reference Include="Assembly-CSharp">
         <HintPath>lib\Assembly-CSharp_public.dll</HintPath>
       </Reference>
+      <Reference Include="UnityEngine.UI">
+        <HintPath>lib\UnityEngine.UI.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>

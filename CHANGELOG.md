@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.5.0
+- Accept offer cheat (N) now works for all negotiations, not just contract negotiations.
+- Added a bunch of new cheats. See the README for details.
+- Some flair for the damage cheats.
+
 ## 1.4.0
 - UPDATE TO GAME VERSION 1.60
 
