@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.6.0
+- Holding Ctrl/Alt/Shift now prevents costume changes when pressing 1/2/3.
+
 ## 1.5.0
 - Accept offer cheat (N) now works for all negotiations, not just contract negotiations.
 - Added a bunch of new cheats. See the README for details.

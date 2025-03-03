@@ -19,7 +19,7 @@ namespace WrestlingEmpireKeybindCheats
     {
         public const string PluginGuid = "IngoH.WrestlingEmpire.WrestlingEmpireKeybindCheats";
         public const string PluginName = "WrestlingEmpireKeybindCheats";
-        public const string PluginVer = "1.5.0";
+        public const string PluginVer = "1.6.0";
 
         internal static ManualLogSource Log;
         internal readonly static Harmony Harmony = new(PluginGuid);
@@ -66,6 +66,7 @@ namespace WrestlingEmpireKeybindCheats
         
         private void Update()
         {
+            _skipModifierCheck = true;
             if (Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.X) && SceneManager.GetActiveScene().name == "Game" && Time.time > _explosiondelay)
             {
                 var size = Random.Range(7f, 10f);
@@ -295,6 +296,8 @@ namespace WrestlingEmpireKeybindCheats
                 targetMode = (TargetMode) (((int) targetMode + 1) % Enum.GetNames(typeof(TargetMode)).Length);
                 MappedMatch.PostComment($"Target mode: {targetMode.ToString().Replace("TARGET_", "").Replace("NON_", "NON-").Replace("_", " ")}");
             }
+
+            _skipModifierCheck = false;
         }
 
         private List<MappedPlayer> GetTargets()
@@ -374,6 +377,33 @@ namespace WrestlingEmpireKeybindCheats
             if (Input.GetKey(KeyCode.N)) {
                 __result = 1;
             }
+        }
+
+        private static bool _skipModifierCheck = false;
+        
+        // Disable Alpha keybinds if Ctrl/Shit/Alt is pressed
+        [HarmonyPatch(typeof(Input), nameof(Input.GetKey), typeof(KeyCode))]
+        [HarmonyPrefix]
+        private static bool Input_GetKey(ref bool __result, KeyCode key)
+        {
+            if (_skipModifierCheck)
+            {
+                return true;
+            }
+
+            _skipModifierCheck = true;
+            if (key >= KeyCode.Alpha0 && key <= KeyCode.Alpha9 &&
+                (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightShift) ||
+                 Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ||
+                 Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt)))
+            {
+                _skipModifierCheck = false;
+                __result = false;
+                return false;
+            }
+
+            _skipModifierCheck = false;
+            return true;
         }
     }
 }
